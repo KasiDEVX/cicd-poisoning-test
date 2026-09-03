@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "reqeusts": "1.0.0"
+    "requests": "2.32.3"
   }
 }
