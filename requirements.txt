@@ -1,0 +1,3 @@
+# INERT TEST FIXTURE: names are scanned as text and must never be installed.
+reqeusts==0.0.0-test-only
+totally-obscure-pkg-xyz999==0.0.0-test-only

