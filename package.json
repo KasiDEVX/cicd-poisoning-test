@@ -1,5 +1,8 @@
 {
+  "name": "poisoned-scanner-fixture",
+  "private": true,
   "dependencies": {
-    "requests": "2.32.3"
+    "reqeusts": "0.0.0-test-only",
+    "totally-obscure-pkg-xyz999": "0.0.0-test-only"
   }
 }
